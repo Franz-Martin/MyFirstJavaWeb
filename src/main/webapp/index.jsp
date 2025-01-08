@@ -4,6 +4,7 @@
     Author     : trainer
 --%>
 
+<%@page import="com.ibb.servlet.Person"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,12 +16,25 @@
         <h1>Hello World!</h1>
         <a href="servlet"> Zum Servlet </a><br>
         <a href="second"> Zum Second Servlet </a>
+        <%!
+          String text="</br><h2>Hallo Jsp World</h2></br>"; 
+            %>
+        
         <% 
-           String text="</br><h2>Hallo Jsp World</h2></br>"; 
+            
+                String t="Hallo";
+            
+            
+            
+            Person p=new Person();
+           String id=request.getSession().getId();
+           //response.sendRedirect(location);
            for(int i=1;i<5; i++){
-         %>
-         <%=text %>
-         
-         <%}%>
+           out.print(text);
+           request.setAttribute("text", text);
+           session.setAttribute("text", text);
+           application.setAttribute("text", text);
+           pageContext.getAttributeNamesInScope(PageContext.APPLICATION_SCOPE);
+        }%>
     </body>
 </html>
