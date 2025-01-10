@@ -6,6 +6,7 @@ package com.ibb.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,8 @@ public class SecondServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SecondServlet " + person + "</h1>");
+            RequestDispatcher dispatcher=request.getRequestDispatcher("signin.html");
+            dispatcher.include(request, response);
             out.println("</body>");
             out.println("</html>");
         }
